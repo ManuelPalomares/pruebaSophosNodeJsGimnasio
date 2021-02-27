@@ -1,6 +1,8 @@
 'use strict'
 
 var Usuario =require('../model/usuario');
+var SedesUsuario = require('../model/sedesUsuarios');
+
 var bcrypt = require('bcrypt-nodejs');
 
 function saveUser(req,res){
@@ -16,24 +18,58 @@ function saveUser(req,res){
         if(usuario == null)
         {
             
+
+            if(params.idSede ==null){
+                res.status(500).send({
+                    message : 'Error save'
+                    });
+            }
+
             if(params.password){
                 bcrypt.hash(params.password,null,null,function(err,hash){
                     pwdhash = hash;
 
                     if(params.login !=null && params.nombre !=null && params.email != null){
 
-                           Usuario.create({ login : params.login, nombre:params.nombre,password:pwdhash,email:params.email}).then(function(){
-                                res.status(200).send({
-                                message : 'ok'
-                                });
+
+                        
+                         //TODO valida si supera la cantidad de ids de usuario. 
+                                    
+
+                           Usuario.create({ login : params.login, nombre:params.nombre,password:pwdhash,email:params.email}).then(function(usercreated){
+
+                                    //rescato id para grabar 
+                                    var idcreado = usercreated.id;
+                                    var error = false;
+
+
+                                    SedesUsuario.create({id_sede:params.idSede,id_usuario:idcreado}).then(function(sede){
+                                       
+                                        error = false;
+                                    }).catch(function(err){
+                                        console.log(err);
+
+                                        error = true;
+                                    });
+
+                                    if(error){
+                                        res.status(500).send({
+                                            message : 'Error interno server'
+                                        });
+                                    }
+                                    else{
+                                        res.status(200).send({
+                                            message : 'ok'
+                                        });
+                                    }
+                            
+
+
                            }).catch(function (error) {
                             res.status(500).send({
                                 message : 'Error save'
                                 });
-                            });
-                       
-
-                            
+                            });           
                     }else{
                         res.status(200).send({
                             message : 'Ingrese toda la informacion'
@@ -48,7 +84,7 @@ function saveUser(req,res){
           
           
         }else{
-            console.log(usuario);
+         
             res.status(500).send({
                 message : 'Error datos'
             });
@@ -60,6 +96,20 @@ function saveUser(req,res){
 
 }
 
+
+function getUserBySede(req,res){
+
+    var params = req.body;
+    var idsede = params.idsede;
+ 
+    SedesUsuario.findAll({where:{idsede : idsede}}).then(function(sedes){
+        
+    });
+
+
+}
+
 module.exports = {
-    saveUser
+    saveUser,
+    getUserBySede
 };
