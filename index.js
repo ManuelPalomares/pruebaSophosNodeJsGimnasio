@@ -2,14 +2,13 @@
 
 
 var app = require('./app');
+
 var port = process.env.PORT || 3900;
 
 
-/*('pruebasophos','root','root1234',{
-	host: 'localhost',
-	dialect: 'mysql'
-});
-*/
+
+
+
 
 console.log("creado");
 
