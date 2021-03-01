@@ -1,0 +1,171 @@
+{
+	"id": "c8e75f98-db1e-3614-ca4c-d13a8e412e84",
+	"name": "PostmanPrueba",
+	"description": "",
+	"order": [
+		"213a6766-d237-974c-3b9f-6695059878b7",
+		"6f538d75-e51d-8f19-535c-de27d17e3029",
+		"bb479f43-6427-075b-1b9e-1eeff0aaa234",
+		"e0fd3a12-3b57-43b4-df47-6bd4585203bf",
+		"b31b583c-957b-af96-6371-a77dff1e5739"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1614617782499,
+	"owner": "3360744",
+	"public": false,
+	"requests": [
+		{
+			"id": "213a6766-d237-974c-3b9f-6695059878b7",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3900/api/resgister",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "c8e75f98-db1e-3614-ca4c-d13a8e412e84",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://localhost:3900/api/resgister",
+			"description": "Registro de usuarios con sede.",
+			"descriptionFormat": "html",
+			"time": 1614617793118,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"login\": \"maunelPalomares93\",\n\t\"nombre\" : \"Manuel Alejandro Palomares Hernandez\",\n\t\"password\" : \"1234\",\n\t\"email\" : \"prueba@prueba\",\n\t\"idSede\" : \"1\"\n}"
+		},
+		{
+			"id": "6f538d75-e51d-8f19-535c-de27d17e3029",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:3900/api/ciudades/getCiudades",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "c8e75f98-db1e-3614-ca4c-d13a8e412e84",
+			"data": null,
+			"dataMode": "params",
+			"name": "http://localhost:3900/api/ciudades/getCiudades",
+			"description": "Lista de Ciudades",
+			"descriptionFormat": "html",
+			"time": 1614617823952,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "b31b583c-957b-af96-6371-a77dff1e5739",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:3900/api/getUsersBySede/1",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "c8e75f98-db1e-3614-ca4c-d13a8e412e84",
+			"data": null,
+			"dataMode": "params",
+			"name": "http://localhost:3900/api/getUsersBySede/1",
+			"description": "Obtner lista de usuarios por sede",
+			"descriptionFormat": "html",
+			"time": 1614617903733,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "bb479f43-6427-075b-1b9e-1eeff0aaa234",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:3900/api/sedes/getSedes",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "c8e75f98-db1e-3614-ca4c-d13a8e412e84",
+			"data": null,
+			"dataMode": "params",
+			"name": "http://localhost:3900/api/sedes/getSedes",
+			"description": "Lista de Sedes",
+			"descriptionFormat": "html",
+			"time": 1614617839620,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "e0fd3a12-3b57-43b4-df47-6bd4585203bf",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3900/api/sedes/saveSedes",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "c8e75f98-db1e-3614-ca4c-d13a8e412e84",
+			"data": [
+				{
+					"key": "idciudad",
+					"value": "3",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "descripcion",
+					"value": "Sede 1 de cali ",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "capacidadmax",
+					"value": "300",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "http://localhost:3900/api/sedes/saveSedes",
+			"description": "Guardar Sedes",
+			"descriptionFormat": "html",
+			"time": 1614617855654,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}
