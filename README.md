@@ -2,9 +2,8 @@ Instructivo Prueba Tecnica Elaborada para Sophos Solutions
 	Autor   : Manuel Palomares
 
 
-/************************************
-	Configuracion inicial
-**************************************/
+/* Configuracion inicial */
+
 Para ejecutar el aplicativo localmente o  servidor es necesario contar con lo siguiente : 
 
   Tener instalado Node.js Angular cli en la  siguiente version : 
@@ -14,9 +13,8 @@ Para ejecutar el aplicativo localmente o  servidor es necesario contar con lo si
 	* OS: win32 x64
 
 
-/***********************************************************************************************
-	Fase Instructivo Api Rest Backend   
-**************************************************************************************************/
+/* Fase Instructivo Api Rest Backend */
+
 
 1)  Crear Base de datos Mysql con nombre esquema prueba_sophos y con usuario de base de datos  root  o el usuario que se requiera.
 	Nota : usuario y el password de la basde datos se debe modificar el archivo : api\conex.js 
@@ -55,9 +53,7 @@ Para ejecutar el aplicativo localmente o  servidor es necesario contar con lo si
 	Executing (default): SELECT 1+1 AS result
 	
 
-/*
-	Fase Instructivo Front end
-*/
+/* Fase Instructivo Front end */
 
 5) Se debe ubicar en consola en la carpeta \client\SophosPrueba y ejecutar el comando  ng update   
    Nota : esto actualizara todas las dependencias del proyecto localmente. 
