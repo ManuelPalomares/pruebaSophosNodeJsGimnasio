@@ -28,7 +28,7 @@ Para ejecutar el aplicativo localmente o  servidor es necesario contar con lo si
 		*Este usuario tiene rol de Administrador 
 
 
-3) Una vez ejecutar el script DML principal, se debe ejecutar el comando "npm install" en la carpeta \api.  
+3) Una vez ejecutar el script ScriptBd\DML.sql principal, se debe ejecutar el comando "npm install" en la carpeta \api.  
 
 	Nota : esto instalara todas las dependencias usadas : 
 	
