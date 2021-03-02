@@ -43,6 +43,7 @@ Para ejecutar el aplicativo localmente o  servidor es necesario contar con lo si
 	"jest": "^26.6.3",
 	"nodemon": "^2.0.7"
 
+Framework de presentasion : Bostrap, Jquery
 
 4)  Una vez ejecutado el comando de install en la carpeta  se procede a ejecutar el comando "npm start" - Esto inicia el servicio del api
 
