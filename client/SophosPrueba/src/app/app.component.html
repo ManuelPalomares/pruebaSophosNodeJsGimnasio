@@ -2,8 +2,109 @@
 
 <div *ngIf="identify">
 <h1>Bienvenido usuario</h1>
+<form (ngSubmit)="cerrarSesion()">
+  <input type="submit" class="btn btn-primary" value="Cerrar Session ">
+</form>
 
+<div class="container">
+  
+  <div class="card-group">
+  <!-- formulario de Ciudades. -->
+  <div class="col-lg-6" class="card" style="width: 18rem">
+    <div class="card-body">
+    <h2 class="card-title">Registro de Ciudades</h2>
+    <div *ngIf="errorenCiudad" class="alert alert-info">
+      <strong>Error</strong> {{errorenCiudad}}
+    </div>
+      <form (ngSubmit)="guardarCiudad()">
+        <div class="row">
+          <label for="ciudad">Ingrese Nombre Ciudad </label>
+          <input #descripcion="ngModel" name="descripcion" type="text" class="form-control" [(ngModel)]="ciudad.descripcion" required>
+          <span class="alert alert-info" *ngIf="!descripcion.valid && descripcion.touched">
+            La descripcion es Obligatorio
+          </span>
+        </div>
+
+        <div class="row">
+      
+          <input type="submit" value="Guardar Ciudad" class="btn btn-primary">
+          
+        </div>
+        <div class="row">
+          <h2>Listado de Ciudades Registradas</h2>
+
+          <table>
+            <thead>
+              <tr>
+                <td>Id Ciudad</td>
+                <td>Descripcion</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let ciud of ciudades">
+                <td>{{ciud.id}}</td>
+                <td>{{ciud.descripcion}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+   <!-- formulario de Sedes. -->
+   <div class="col-lg-6" class="card" style="width: 18rem;margin-left: 20px;">
+    <div class="card-body">
+    <h2 class="card-title">Registro de Sedes</h2>
+    <div *ngIf="errorenSedes" class="alert alert-info">
+      <strong>Error</strong> {{errorenSedes}}
+    </div>
+      <form (ngSubmit)="guardarSede()">
+
+        <div class="row">
+          <label for="idciudad">Seleccione Ciudad de la Sede </label>
+          <select #idciudad="ngModel" name="idciudad" type="text" class="form-control" [(ngModel)]="sede.idciudad" required>
+            <option value="-1">--seleccione ciudad</option>
+            <option *ngFor="let ciud of ciudades" [value]="ciud.id">{{ciud.descripcion}}</option>
+          </select>
+          <span class="alert alert-info" *ngIf="!idciudad.valid && idciudad.touched">
+            La ciudad es obligatoria
+          </span>
+        </div>
+
+        <div class="row">
+          <label for="descripcion">Descripcion sede </label>
+          <input  #descripcion="ngModel" name="descripcion" type="text" [(ngModel)]="sede.descripcion" class="form-control">
+
+          <span class="alert alert-info" *ngIf="!descripcion.valid && descripcion.touched">
+            La ciudad es obligatoria
+          </span>
+        </div>
+
+        <div class="row">
+          <label for="capacidadmax">Capacidad Max de la Sede </label>
+          <input  #capacidadmax="ngModel" name="capacidadmax" type="number" [(ngModel)]="sede.capacidadmax" class="form-control">
+        </div>
+
+
+        <div class="row">
+      
+          <input type="submit" value="Guardar Sede" class="btn btn-primary">
+          
+        </div>
+     
+      </form>
+    </div>
+  </div>
+
+
+  
+  </div>
 </div>
+</div>
+
+
 <div class="container"  *ngIf="!identify">
 <div class="row col-lg-12">
 

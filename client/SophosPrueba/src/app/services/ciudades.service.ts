@@ -21,6 +21,22 @@ export class CiudadService{
 
     }
 
+    saveCiudad(ciudad : Ciudad,token:string){
+
+        let json = JSON.stringify(ciudad);
+        let params =json;
+
+          //el header del servidor. 
+          var  httpOptions2 = {
+            headers: new HttpHeaders({
+              'Content-Type':  'application/json',
+              'Authorization' : token
+            })
+        };
+
+
+        return this._http.post<any>(this.url+'ciudades/saveCiudad/', params, httpOptions2);
+    }
     
     
 }

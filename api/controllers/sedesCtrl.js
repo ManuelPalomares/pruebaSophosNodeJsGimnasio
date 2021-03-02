@@ -38,7 +38,7 @@ function saveSedes(req,res){
 function getListSedes(req,res){
     Sedes.findAll().then(function(sedes){
 
-        console.log(sedes);
+      
         res.status(200).send({
             sedes : sedes
         });
@@ -46,7 +46,21 @@ function getListSedes(req,res){
     
 }
 
+function getListaSedesByCiudad(req,res){
+    var params = req.params;
+    var pidCiudad  = params.idciudad;
+
+    Sedes.findAll({where:{idciudad : pidCiudad}}).then(function(sedes){
+
+      
+        res.status(200).send({
+            sedes : sedes
+        });
+    });
+}
+
 module.exports = {
     saveSedes,
-    getListSedes
+    getListSedes,
+    getListaSedesByCiudad
 };

@@ -9,7 +9,8 @@ import { Usuario } from '../models/usuario';
 export class UsuarioService{
 
     public url :  string ;
-
+    public identity : any;
+    public token  : any;
     constructor(private _http: HttpClient){
         this.url = GLOBAL.url;
 
@@ -54,6 +55,34 @@ export class UsuarioService{
 
     
 
+    }
+
+    getIdentity(){
+        var strjson :any=localStorage.getItem('identity');
+
+        let identity = JSON.parse(strjson);
+
+        if(identity != 'undefined'){
+            this.identity = identity;
+        }
+        else{
+            this.identity = null;
+        }
+        return this.identity;
+    }
+
+    getToken(){
+        var str :any=localStorage.getItem('token');
+        console.log(str);
+        let token = str;
+
+        if(token != 'undefined'){
+            this.token = token;
+        }
+        else{
+            this.token = null;
+        }
+        return this.token;
     }
     
 }
