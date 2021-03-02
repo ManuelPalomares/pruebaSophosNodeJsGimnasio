@@ -132,7 +132,7 @@ var saveUser = function(req,res){
         }else{
          
             res.status(500).send({
-                message : 'Error usuario invalido o existente'
+                message : 'Error usuario invalido o existen'
             });
         
         }

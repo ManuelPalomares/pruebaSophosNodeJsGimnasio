@@ -42,7 +42,10 @@ Para ejecutar el aplicativo localmente o  servidor es necesario contar con lo si
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
     "sequelize": "^6.5.0"
-	"nodemon"
+	
+	dev
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.7"
 
 
 4)  Una vez ejecutado el comando de install en la carpeta  se procede a ejecutar el comando "npm start" - Esto inicia el servicio del api
@@ -66,4 +69,16 @@ Para ejecutar el aplicativo localmente o  servidor es necesario contar con lo si
 7 ) ingresar a la direccion url http://localhost:4200/ donde se depliega en ambiente local. 
 
 
+
+
+/*Archivos PostMan*/
+
+Se Creo la collecion de los servicios con datos ejemplos en la ruta : 
+	api\collectionpostman\PostmanPrueba.postman_collection.json
+	
+Nota : los request de adminitrador y usuario logueado manejan el Header : Autorization este header permite verificar si un usuario esta logueado y el rol que tiene .
+
+/*Pruebas Con Jest*/
+
+Se configuraron 3 pruebas comando para ejecutar parado en \api npm run test
 
