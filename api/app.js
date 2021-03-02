@@ -16,6 +16,15 @@ var sedes_routes = require('./routes/sedes');
 app.use(bodyParser.urlencoded({extented:false}));
 app.use(bodyParser.json());
 
+//controlar el cors permitir dominios 
+app.use((req,res,next) =>{
+	res.header('Access-Control-Allow-Origin','*');
+	res.header('Access-Control-Allow-Headers','Authorization,X-API-KEY,Origin,X-Requested-With,Content-Type,Accept,Access-Control-Allow-Request-Method,XMLHttpRequest');
+	res.header('Access-Control-Allow-Methods','GET,POST,OPTIONS,PUT,DELETE');
+	res.header('Allow','GET,POST,OPTIONS,PUT,DELETE');
+	
+	next();
+});
 
 //configurar cabeceras
 

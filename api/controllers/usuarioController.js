@@ -44,6 +44,8 @@ var saveUser = function(req,res){
     
      
     var params = req.body;
+    console.log(params);
+    
 
     Usuario.findOne({ where: { login: params.login } }).then(function(usuario){
 
@@ -130,7 +132,7 @@ var saveUser = function(req,res){
         }else{
          
             res.status(500).send({
-                message : 'Error datos'
+                message : 'Error usuario invalido o existente'
             });
         
         }
@@ -182,12 +184,14 @@ function loginUser(req,res){
                        });
                     }
                     else{
+                        /// no sea visible password encriptado.
+                        user.password = "";
                         res.status(200).send({
                              user
                         });
                     }
                 }else{
-                    res.status(200).send({
+                    res.status(403).send({
 
                         message :'Login password invalid'
                     });
