@@ -71,7 +71,7 @@ var saveUser = function(req,res){
                         //valida si la sede supera la cantidad de ids de usuario. 
                         obtenerCantidadSede(params.idSede).then(function(limiteCant){
                             if(!limiteCant){
-                                res.status(200).send({
+                                res.status(401).send({
                                     message : 'No es posible Crear Usuario Limite de la Sede.'
                                 });
                                 return;

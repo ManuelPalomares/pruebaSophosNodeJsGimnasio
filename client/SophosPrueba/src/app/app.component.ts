@@ -236,6 +236,8 @@ export class AppComponent implements OnInit{
       error=>{
 
         var errormsg = <any> error;
+
+        console.log(errormsg);
         if(errormsg !=null){
          var showe = false;
   
