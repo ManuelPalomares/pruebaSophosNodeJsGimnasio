@@ -77,8 +77,6 @@ var saveUser = function(req,res){
                                 return;
                             }else{
                           
-                                
-
                                     //registra un usuario
                                     Usuario.create({ login : params.login, nombre:params.nombre,password:pwdhash,email:params.email,role:'USR_NORM'}).then(function(usercreated){
 
